@@ -68,11 +68,40 @@ pipelineConfig:
       pipeline:
         options:
           containerOptions:
+            env:
+            - name: DOCKER_REGISTRY
+              valueFrom:
+                configMapKeyRef:
+                  key: docker.registry
+                  name: jenkins-x-docker-registry
+            - name: GIT_AUTHOR_EMAIL
+              value: jenkins-x@googlegroups.com
+            - name: GIT_AUTHOR_NAME
+              value: jenkins-x-bot
+            - name: GIT_COMMITTER_EMAIL
+              value: jenkins-x@googlegroups.com
+            - name: GIT_COMMITTER_NAME
+              value: jenkins-x-bot
+            - name: XDG_CONFIG_HOME
+              value: /home/jenkins
+            name: ""
             resources:
-              limits:
-                memory: 6Gi
               requests:
+                cpu: 400m
                 memory: 2Gi
+            securityContext:
+              privileged: true
+            volumeMounts:
+            - mountPath: /home/jenkins
+              name: workspace-volume
+            - mountPath: /kaniko/.docker
+              name: jenkins-docker-cfg
+          volumes:
+          - emptyDir: {}
+            name: workspace-volume
+          - name: jenkins-docker-cfg
+            secret:
+              secretName: jenkins-docker-cfg
         agent:
           image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
@@ -92,8 +121,6 @@ pipelineConfig:
             environment:
               - name: PUSH_LATEST
                 value: "false"
-              - name: GOOGLE_APPLICATION_CREDENTIALS
-                value: /secrets/kaniko/kaniko-secret.json
               - name: GIT_COMMITTER_EMAIL
                 value: jenkins-x@googlegroups.com
               - name: GIT_COMMITTER_NAME
