@@ -42,9 +42,9 @@ pipelineConfig:
                 - --dockerfile=/workspace/source/builder-base/Dockerfile.base.generated
                 - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/jenkins-x-builders-base:${inputs.params.version}
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
+                #- --cache-repo=gcr.io/jenkinsxio/cache
+                #- --cache=true
+                #- --cache-dir=/workspace
             # - name: build-and-push-ruby-base
             #   command: /kaniko/executor
             #   args:
@@ -113,9 +113,9 @@ pipelineConfig:
                 - --dockerfile=/workspace/source/builder-base/Dockerfile.base.generated
                 - --destination=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/jenkins-x-builders-base:${inputs.params.version}
                 - --context=/workspace/source
-                - --cache-repo=gcr.io/jenkinsxio/cache
-                - --cache=true
-                - --cache-dir=/workspace
+                #- --cache-repo=gcr.io/jenkinsxio/cache
+                #- --cache=true
+                #- --cache-dir=/workspace
             # - name: build-and-push-ruby-base
             #   command: /kaniko/executor
             #   args:
