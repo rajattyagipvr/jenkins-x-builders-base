@@ -1,0 +1,26 @@
+
+Showing logs for build [32mmeta-rajattyagipvr-jenkins-x-bu-5l7r9-1[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-xlmz4[0m
+{"level":"warn","ts":1593596555.9684064,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1593596555.9686782,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-rajattyagipvr-jenkins-x-bu-5l7r9-1[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-wd9nx[0m
+{"level":"warn","ts":1593596556.2645383,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1593596556.2653635,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mmeta-rajattyagipvr-jenkins-x-bu-5l7r9-1[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-rajattyagipvr-jenkins-x-bu-5l7r9-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-rajattyagipvr-jenkins-x-bu-5l7r9-57nrc[0m
+{"level":"warn","ts":1593596561.380015,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1593596563.429295,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*************/jenkins-x-builders-base.git @ master in path /workspace/source"}
+
+Showing logs for build [32mmeta-rajattyagipvr-jenkins-x-bu-5l7r9-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmeta-rajattyagipvr-jenkins-x-bu-5l7r9-1[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+SKIP merge-pull-refs: Nothing to merge
+
+Showing logs for build [32mmeta-rajattyagipvr-jenkins-x-bu-5l7r9-1[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+error: failed to create the ** client: namespaces "**" is forbidden: User "system:serviceaccount:**:default" cannot get resource "namespaces" in API group "" in the namespace "**"
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
