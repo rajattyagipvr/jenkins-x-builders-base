@@ -5,18 +5,18 @@ set -o nounset
 set -o pipefail
 
 jx step create pr docker \
-    --name gcr.io/jenkinsxio/builder-base \
-    --name gcr.io/jenkinsxio/builder-rubybase \
-    --name gcr.io/jenkinsxio/builder-swiftbase \
+    --name 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base \
+    --name 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rubybase \
+    --name 702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase \
     --version ${VERSION} \
-    --repo https://github.com/jenkins-x/jenkins-x-builders.git \
-    --repo https://github.com/jenkins-x/jenkins-x-builders-ml.git
+    --repo https://github.com/rajattyagipvr/jenkins-x-builders.git \
+    --repo https://github.com/rajattyagipvr/jenkins-x-builders-ml.git
 
 jx step create pr regex \
-    --regex '\s+-\s--image=gcr.io/jenkinsxio/builder-base:(.*)' \
-    --regex '\s+-\s--image=gcr.io/jenkinsxio/builder-rubybase:(.*)' \
-    --regex '\s+-\s--image=gcr.io/jenkinsxio/builder-swiftbase:(.*)' \
+    --regex '\s+-\s--image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-base:(.*)' \
+    --regex '\s+-\s--image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-rubybase:(.*)' \
+    --regex '\s+-\s--image=702769831180.dkr.ecr.ap-south-1.amazonaws.com/702769831180/builder-swiftbase:(.*)' \
     --version ${VERSION} \
     --files jenkins-x.yml \
-    --repo https://github.com/jenkins-x/jenkins-x-builders.git \
-    --repo https://github.com/jenkins-x/jenkins-x-builders-ml.git
+    --repo https://github.com/rajattyagipvr/jenkins-x-builders.git \
+    --repo https://github.com/rajattyagipvr/jenkins-x-builders-ml.git
